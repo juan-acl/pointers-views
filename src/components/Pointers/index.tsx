@@ -1,9 +1,11 @@
 import React from 'react';
+import { Buttons } from 'components/Buttons';
+import "./pointersStyle.scss"
 
 export const Pointer: React.FC = () => {
     return (
-        <div>
-            <h1>Pointer</h1>
+        <div className='container-pointers'>
+            <Buttons />
         </div>
     )
 }

@@ -1,11 +1,11 @@
-import { Pointer } from "components/Pointers"
 import './App.css'
+import { Container } from "components/Container"
 
 function App() {
 
   return (
     <>
-      <Pointer />
+      <Container />
     </>
   )
 }

@@ -6,11 +6,15 @@ const root = path.resolve(__dirname, 'src');
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    // modules: {
+    //   localsConvention: 'camelCase'
+    // }
+  },
   plugins: [react()],
   resolve: {
     alias: {
       "components": path.posix.join(root, 'components'),
-      "routes": path.posix.join(root, 'routes'),
     },
   },
 })
