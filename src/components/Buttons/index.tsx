@@ -4,23 +4,23 @@ let Next = "Next >"
 let Previus = "< Previus"
 
 interface ButtonsProps {
-    points: { x: number, y: number, id: string }[];
-    setPoints: React.Dispatch<React.SetStateAction<{ x: number; y: number; id: string }[]>>;
+    points: { x: number, y: number }[];
+    setPoints: React.Dispatch<React.SetStateAction<{ x: number; y: number; }[]>>;
 }
 
 interface Point {
     x: number;
     y: number;
-    id: string;
 }
 
 export const Buttons: React.FC<ButtonsProps> = (props: ButtonsProps) => {
 
     const [previus, setPrevius] = useState<Point[]>([]);
 
+    // El metodo pop elimina el ultimo elemento de un array y lo retorna el elemento eliminado ademas de modificar el array original
+
     const handleClickPrevius = () => {
         if (props.points.length === 0) return
-
         const lastPoint = props.points.pop()
         setPrevius([...previus, lastPoint!])
         props.setPoints([...props.points])
