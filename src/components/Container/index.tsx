@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Pointer } from "components/Pointers";
+import { v4 } from "uuid";
 import "./containerStyle.scss";
 
 interface Point {
+    id: string
     x: number;
     y: number;
 }
@@ -12,12 +14,13 @@ export const Container: React.FC = () => {
 
     const handleChange = (e: React.MouseEvent<HTMLDivElement>) => {
         const { offsetX, offsetY } = e.nativeEvent;
-        setPoints([...points, { x: offsetX, y: offsetY }]);
+        console.log("Validando la data", { offsetX, offsetY })
+        setPoints([...points, { x: offsetX, y: offsetY, id: v4() }]);
     };
 
     return (
         <>
-            <Pointer />
+            <Pointer points={points} setPoints={setPoints} />
             <div className="container" onClick={handleChange}>
                 {points.map((point, index) => (
                     <div
